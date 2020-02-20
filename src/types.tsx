@@ -3,6 +3,10 @@ export enum FocusType {
   EndDate = 'EndDate',
   None = 'None',
 }
+export enum Origin {
+  Top = 'Top',
+  Bottom = 'Bottom',
+}
 
 export type DefaultModifierNames =
   | 'today'

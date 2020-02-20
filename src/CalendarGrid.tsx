@@ -7,9 +7,13 @@ import {
 } from 'date-fns';
 import classNames from 'classnames';
 import useGrid from './useGrid';
-import { ORIGIN_BOTTOM, ORIGIN_TOP } from './constants';
 import CalendarDay from './CalendarDay';
-import { ModifiersObj, ModifierClassnameObj, MonthChangeFn } from './types';
+import {
+  ModifiersObj,
+  ModifierClassnameObj,
+  MonthChangeFn,
+  Origin,
+} from './types';
 
 export type CalendarGridProps = {
   locale: Locale;
@@ -86,8 +90,8 @@ const CalendarGrid: React.FC<CalendarGridProps> = ({
       <div
         className={classNames('nice-dates-grid_container', {
           '-moving': offset,
-          '-origin-bottom': origin === ORIGIN_BOTTOM,
-          '-origin-top': origin === ORIGIN_TOP,
+          '-origin-bottom': origin === Origin.Bottom,
+          '-origin-top': origin === Origin.Top,
           '-transition': transition,
         })}
         ref={containerElementRef}

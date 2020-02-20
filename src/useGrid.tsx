@@ -16,8 +16,7 @@ import {
   Locale,
 } from 'date-fns';
 
-import { ORIGIN_BOTTOM, ORIGIN_TOP } from './constants';
-import { MonthChangeFn } from './types';
+import { MonthChangeFn, Origin } from './types';
 
 type GridState = {
   startDate: Date;
@@ -27,7 +26,7 @@ type GridState = {
   lastCurrentMonth: Date;
   locale: Locale;
   offset: number;
-  origin: string;
+  origin: Origin;
   transition: boolean;
 };
 
@@ -67,7 +66,7 @@ const createInitialState = (currentMonth: Date, locale: Locale): GridState => {
     lastCurrentMonth: currentMonth,
     locale,
     offset: 0,
-    origin: ORIGIN_TOP,
+    origin: Origin.Top,
     transition: false,
   };
 };
@@ -109,7 +108,7 @@ const reducer: Reducer<GridState, GridAction> = (state, action) => {
           ...newState,
           endDate: getEndDate(currentMonth, state.locale),
           offset,
-          origin: ORIGIN_TOP,
+          origin: Origin.Top,
         };
       } else if (isBefore(currentMonth, lastCurrentMonth)) {
         const gridHeight = cellHeight * 6;
@@ -121,7 +120,7 @@ const reducer: Reducer<GridState, GridAction> = (state, action) => {
           ...newState,
           startDate: getStartDate(currentMonth, state.locale),
           offset,
-          origin: ORIGIN_BOTTOM,
+          origin: Origin.Bottom,
         };
       }
 

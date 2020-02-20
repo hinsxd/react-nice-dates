@@ -18,7 +18,6 @@ describe('DatePickerCalendar', () => {
     const { getAllByText } = render(
       <DatePickerCalendar locale={locale} onDateChange={handleDateChange} />
     );
-    console.log(111);
     fireEvent.click(getAllByText('1')[0]);
 
     expect(handleDateChange).toHaveBeenCalledTimes(1);
@@ -28,7 +27,6 @@ describe('DatePickerCalendar', () => {
     const { getAllByText } = render(
       <DatePickerCalendar locale={locale} date={startOfMonth(new Date())} />
     );
-    console.log(222);
     expect(getAllByText('1')[0].parentElement).toHaveClass('-selected');
   });
 
