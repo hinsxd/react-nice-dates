@@ -13,10 +13,13 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "css": "sass src/style.scss dist/style.css --no-source-map && postcss dist/style.css --use autoprefixer -o dist/style.css"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "date-fns": "^2.0.0",
+    "react": "^16",
+    "react-dom": "^16"
   },
   "husky": {
     "hooks": {
@@ -38,16 +41,25 @@
     "@storybook/addon-links": "^5.3.13",
     "@storybook/addons": "^5.3.13",
     "@storybook/react": "^5.3.13",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/classnames": "^2.2.9",
     "@types/jest": "^25.1.2",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
     "babel-loader": "^8.0.6",
+    "date-fns": "^2.9.0",
     "husky": "^4.2.3",
+    "postcss-cli": "^7.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "sass": "^1.25.0",
     "ts-loader": "^6.2.1",
     "tsdx": "^0.12.3",
     "tslib": "^1.10.0",
     "typescript": "^3.7.5"
-  }
+  },
+  "dependencies": {}
 }
